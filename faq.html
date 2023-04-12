@@ -1,0 +1,307 @@
+<!-- component -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="./assets/styles/styles.css" /> -->
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+</head>
+
+<body class="h-screen bg-blue-50">
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-sky-800 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Online Banking Platform</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-gray-900">Home</a>
+                <a class="mr-5 hover:text-gray-900">About Us</a>
+                <a class="mr-5 hover:text-gray-900">Contact Us</a>
+            </nav>
+            <button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex justify-center items-start my-2">
+        <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+            <h2 class="text-xl font-semibold text-vnet-blue mb-2">FAQ - Order, Shipping, Etc.</h2>
+            <ul class="flex flex-col">
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>When will my order arrive?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div x-ref="tab" :style="handleToggle()"
+                        class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all">
+                        <p class="p-3 text-gray-900">
+                            Shipping time is set by our delivery partners, according to the delivery method chosen
+                            by you. Additional details can be found in the order confirmation
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>How do I track my order?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            Once shipped, you’ll get a confirmation email that includes a tracking number and
+                            additional information regarding tracking your order.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(3)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What’s your return policy?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            We allow the return of all items within 30 days of your original order’s date. If you’re
+                            interested in returning your items, send us an email with your order number and we’ll
+                            ship a return label.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>How do I make changes to an existing order?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            Changes to an existing order can be made as long as the order is still in “processing”
+                            status. Please contact our team via email and we’ll make sure to apply the needed
+                            changes. If your order has already been shipped, we cannot apply any changes to it. If
+                            you are unhappy with your order when it arrives, please contact us for any changes you
+                            may require.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What shipping options do you have?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            For USA domestic orders we offer FedEx and USPS shipping.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What shipping options do you have?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            For USA domestic orders we offer FedEx and USPS shipping.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What shipping options do you have?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            For USA domestic orders we offer FedEx and USPS shipping.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What shipping options do you have?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            For USA domestic orders we offer FedEx and USPS shipping.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What shipping options do you have?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            For USA domestic orders we offer FedEx and USPS shipping.
+                        </p>
+                    </div>
+                </li>
+                <li class="bg-white my-2 shadow-lg" x-data="accordion(6)">
+                    <h2 @click="handleClick()"
+                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer">
+                        <span>What payment methods do you accept?</span>
+                        <svg :class="handleRotate()"
+                            class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                            </path>
+                        </svg>
+                    </h2>
+                    <div class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                        x-ref="tab" :style="handleToggle()">
+                        <p class="p-3 text-gray-900">
+                            Any method of payments acceptable by you. For example: We accept MasterCard, Visa,
+                            American Express, PayPal, JCB Discover, Gift Cards, etc.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-sky-800 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Online Banking Platform</span>
+            </a>
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+                2023 OnlineBankingPlatform —
+                <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer"
+                    target="_blank">@onlinebankingplatform</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a class="text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path
+                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none"
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                        </path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none"
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                        </path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </footer>
+</body>
+
+</html>
