@@ -10,31 +10,24 @@
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 </head>
 
-<body class="h-screen bg-blue-50">
-    <header class="text-gray-600 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+<body class="h-screen ">
+
+    <header class="text-black bg-sky-300 body-font">
+        <div class="container mx-auto flex flex-wrap px-12 py-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-sky-800 rounded-full"
-                    viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
-                <span class="ml-3 text-xl">Online Banking Platform</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-hurricane" viewBox="0 0 16 16"> <path d="M6.999 2.6A5.5 5.5 0 0 1 15 7.5a.5.5 0 0 0 1 0 6.5 6.5 0 1 0-13 0 5 5 0 0 0 6.001 4.9A5.5 5.5 0 0 1 1 7.5a.5.5 0 0 0-1 0 6.5 6.5 0 1 0 13 0 5 5 0 0 0-6.001-4.9zM10 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/> </svg> 
+                
+                <span class="ml-3 text-xl font-serif">Online Banking Platform</span>
             </a>
-            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                <a href="index.html" class="mr-5 hover:text-gray-900">Home</a>
-                <a class="mr-5 hover:text-gray-900">About Us</a>
-                <a href="contactus.html" class="mr-5 hover:text-gray-900">Contact Us</a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center ">
+                <a href="index.html"  class="mr-5 hover:text-gray-900 font-serif">Home</a>
+                <a class="mr-5 hover:text-gray-900 font-serif">About Us</a>
+                <a href="contactus.html" class="mr-5 hover:text-gray-900 font-serif">Contact Us</a>
+                <a href="help.html" class="mr-5 hover:text-gray-900 font-serif"> Help </a>
             </nav>
-            <button
-                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </button>
         </div>
     </header>
+ 
 
     <div class="flex justify-center items-start my-2">
         <div class="w-full sm:w-10/12 md:w-1/2 my-1">
@@ -244,19 +237,21 @@
     </div>
 
 
-    <footer class="text-gray-600 body-font">
-        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <footer class="text-gray-600  bg-sky-300 body-font">
+        <div class="container px-12 py-5 mx-auto flex items-center sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-sky-800 rounded-full"
-                    viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                    class="bi bi-hurricane" viewBox="0 0 16 16">
+                    <path
+                        d="M6.999 2.6A5.5 5.5 0 0 1 15 7.5a.5.5 0 0 0 1 0 6.5 6.5 0 1 0-13 0 5 5 0 0 0 6.001 4.9A5.5 5.5 0 0 1 1 7.5a.5.5 0 0 0-1 0 6.5 6.5 0 1 0 13 0 5 5 0 0 0-6.001-4.9zM10 7.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
                 </svg>
-                <span class="ml-3 text-xl">Online Banking Platform</span>
+                <span class="ml-3 text-xl font-serif">Online Banking Platform</span>
             </a>
-            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+            <p
+                class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 font-serif">
+                ©
                 2023 OnlineBankingPlatform —
-                <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer"
+                <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1 font-serif" rel="noopener noreferrer"
                     target="_blank">@onlinebankingplatform</a>
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
@@ -279,15 +274,6 @@
                         stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                         <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                    </svg>
-                </a>
-                <a class="ml-3 text-gray-500">
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                        <path stroke="none"
-                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
-                        </path>
-                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
                     </svg>
                 </a>
                 <a class="ml-3 text-gray-500">
