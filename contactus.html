@@ -72,26 +72,24 @@
                     </div>
                     <script>
                         async function contactUs() {
-                            const first_name =   document.getElementById("first_name");
-                            const last_name =   document.getElementById("last_name");
-                            const email =   document.getElementById("email");
-                            const msg =   document.getElementById("message")
+                            const first_name = document.getElementById("first_name");
+                            const last_name = document.getElementById("last_name");
+                            const email = document.getElementById("email");
+                            const msg = document.getElementById("message")
 
 
                             let data = { firstName: first_name.value, lastName: last_name.value, email: email.value, message: msg.value }
-                            console.log(data)
+                            console.log( JSON.stringify(data))
                             const response = await fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
                                 method: "POST",
-                                mode:'no-cors',
+                                mode: 'no-cors',
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify(data)
-                            }).then((data) => {
-                                console.log(data.json())
-                            }).catch((e) => {
-                                console.log(e)
                             })
+                            console.log(response.json())
+
 
                         }
                     </script>
