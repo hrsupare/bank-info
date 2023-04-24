@@ -72,23 +72,26 @@
                     </div>
                     <script>
                         async function contactUs() {
-                            const first_name = document.getElementById("first_name");
-                            const last_name = document.getElementById("last_name");
-                            const email = document.getElementById("email");
-                            const msg = document.getElementById("message")
+                            const first_name = await document.getElementById("first_name");
+                            const last_name = await document.getElementById("last_name");
+                            const email = await document.getElementById("email");
+                            const msg = await document.getElementById("message")
 
-                            console.log(first_name, last_name, email, msg)
 
-                            let data = { firstName: first_name, lastName: last_name, email: email, message: msg }
-                            const response = await fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
+                            let data = { firstName: first_name.value, lastName: last_name.value, email: email.value, message: msg.value }
+                            console.log(data)
+                            const response = fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
                                 method: "POST",
-                                mode: "cors",
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify(data),
-                            });
-                            console.log(response.json())
+                            }).then((data) => {
+                                console.log(data.json())
+                            }).catch((e) => {
+                                console.log(e)
+                            })
+
                         }
                     </script>
 
