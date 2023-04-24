@@ -66,15 +66,14 @@
                                 class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-sky-600 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                     </div>
-                    <script>
-                       const first_name = document.getElementById("first_name");
-                       const last_name = document.getElementById("last_name");
-                       const email = document.getElementById("email");
-                       const msg = document.getElementById("message")
-                       
-                       let  data = {first_name ,last_name , email , msg }
-                       
-                       const response = await fetch("url", {
+                    <script> 
+                       async function contactUs(){
+                                  const first_name = document.getElementById("first_name");
+                                  const last_name = document.getElementById("last_name");
+                                  const email = document.getElementById("email");
+                                  const msg = document.getElementById("message")
+                                  let  data = {firstName: first_name ,lastName:last_name ,email: email , message:msg }
+                             const response = await fetch("url", {
                              method: "POST",  
                              mode: "cors",  
                              headers: {
@@ -82,12 +81,12 @@
                                             },
                              body: JSON.stringify(data),  
                               });
-                       console.log( response.json())
-
+                             console.log( response.json())
+                       }
                      </script>
                     
                     <div class="p-2 w-full">
-                        <button 
+                        <button onclick="contactUs()"
                             class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none bg-sky-800 hover:bg-sky-600 rounded text-lg">
                             Submit</button>
                     </div>
