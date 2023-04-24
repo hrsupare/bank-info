@@ -80,8 +80,9 @@
 
                             let data = { firstName: first_name.value, lastName: last_name.value, email: email.value, message: msg.value }
                             console.log(data)
-                            const response = fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
+                            const response = await fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
                                 method: "POST",
+                                mode:'cors',
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
