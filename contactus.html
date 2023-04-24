@@ -72,6 +72,8 @@
                                   const last_name = document.getElementById("last_name");
                                   const email = document.getElementById("email");
                                   const msg = document.getElementById("message")
+                         
+                                  console.log(first_name , last_name , email  ,msg )
                                   let  data = {firstName: first_name ,lastName:last_name ,email: email , message:msg }
                              const response = await fetch("url", {
                              method: "POST",  
