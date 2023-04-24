@@ -82,7 +82,7 @@
                             console.log(data)
                             const response = await fetch("https://bankinfo-backend-production.up.railway.app/create/contact", {
                                 method: "POST",
-                                mode:'cors',
+                                mode:'no-cors',
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
